@@ -11,7 +11,22 @@ acc2_table <- calculate_correctness_prob(confidence.model, long_data)
 model_info2 <- get_lrt_table(confidence.model, long_data, m0 = list(base.assessment.model))
 
 # --- Write to Excel: "Confidence Dependent Analysis" sheet ---
-export_model_summary_to_excel(wb, 'Confidence Analysis', coef_df2, acc2_table, model_info2, create_prob_plot(acc2_table, 1))
+
+# Define colors for plot
+bar_colors <- c(
+  "Likely" = '#56B4E9', 
+  "Very likely" = "#0072B2",
+  "Certainly" = "#003B5C",
+  "Overall" = "#009E73"
+)
+
+# Save model and plot to excel
+export_model_summary_to_excel(
+  wb, 'Confidence Analysis', coef_df2, acc2_table, model_info2, 
+  create_prob_plot(
+    acc2_table, 1, bar_colors, show_legend = FALSE
+  )
+)
 
 
 # Confidence + Assessment analysis
@@ -26,4 +41,23 @@ acc3_table <- calculate_correctness_prob(assessment.plus.confidence.model, long_
 model_info3 <- get_lrt_table(assessment.plus.confidence.model, long_data, m0 = list(assessment.type.model, confidence.model))
 
 # --- Write to Excel: "Confidence Dependent Analysis" sheet ---
-export_model_summary_to_excel(wb, 'Conf and Assessment Analysis', coef_df3, acc3_table, model_info3, create_prob_plot(acc3_table, 2))
+
+# Define colors for plot
+bar_colors <- c(
+  "Likely\nAI" = "#FAD4D4",
+  "Very likely\nAI" = "#F08080",
+  "Certainly\nAI" = "#D92B2B",
+  "Likely\nstudent" = '#56B4E9',
+  "Very likely\nstudent" = "#0072B2",
+  "Certainly\nstudent" = "#003B5C",
+  "Overall" = "#009E73"
+)
+
+# Save model and plot to excel
+export_model_summary_to_excel(
+  wb, 'Conf and Assessment Analysis', coef_df3, acc3_table, model_info3, 
+  create_prob_plot(
+    acc3_table, 2, bar_colors, legend_title = 'Assessment & Confidence',
+    show_legend = FALSE, x_label_wrap_width = 12
+  )
+)

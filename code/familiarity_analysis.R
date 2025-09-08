@@ -8,4 +8,19 @@ acc_table <- calculate_correctness_prob(familiarity.model, long_data)
 model_info <- get_lrt_table(familiarity.model, long_data, m0 = list(base.assessment.model))
 
 # --- Write to Excel: "Primary Analysis" sheet ---
-export_model_summary_to_excel(wb, 'AI Familiarity Analysis', coef_df, acc_table, model_info, create_prob_plot(acc_table, 1))
+
+
+# Define colors for plot
+bar_colors <- c(
+  "Somewhat familiar" = '#56B4E9',
+  "Very familiar" = '#005481',
+  "Overall" = "#009E73"
+)
+
+export_model_summary_to_excel(
+  wb, 'AI Familiarity Analysis', coef_df, acc_table, model_info, 
+  create_prob_plot(
+    acc_table, 1, bar_colors, legend_title = 'AI Familiarity',
+    show_legend = FALSE
+  )
+)

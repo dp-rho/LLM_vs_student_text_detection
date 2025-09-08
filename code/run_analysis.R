@@ -5,6 +5,11 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 library(stringr)
+library(extrafont)
+
+# Import times new roman if it has not yet been imported
+# font_import()
+# loadfonts(device = "win")
 
 # Set working directory to project dir
 setwd("D:/independent_research/AI_lit_identification/R_proj")

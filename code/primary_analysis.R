@@ -24,4 +24,16 @@ acc_table <- calculate_correctness_prob(assessment.type.model, long_data)
 model_info <- get_lrt_table(assessment.type.model, long_data, m0 = list(base.assessment.model))
 
 # --- Write to Excel: "Primary Analysis" sheet ---
-export_model_summary_to_excel(wb, 'Assessment Type Analysis', coef_df, acc_table, model_info, create_prob_plot(acc_table, 1))
+
+# Define colors for plot
+bar_colors <- c(
+  "AI" = "#F08080", 
+  "student" = "#0072B2", 
+  "Overall" = "#009E73"
+)
+
+# Save model and plot to excel
+export_model_summary_to_excel(
+  wb, 'Assessment Type Analysis', coef_df, acc_table, model_info, 
+  create_prob_plot(acc_table, 1, bar_colors, show_legend = FALSE)
+)

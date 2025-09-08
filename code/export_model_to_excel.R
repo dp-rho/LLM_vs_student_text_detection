@@ -13,7 +13,7 @@ export_model_summary_to_excel <- function(wb, sheet_name, model_summary_tbl, cor
   
   if (!is.null(prob_plot)) {
     print(prob_plot)
-    insertPlot(wb, sheet = sheet_name, startRow = current_row, startCol = ncol(correctness_prob_tbl) + 6, width = 8, height = 6)
+    insertPlot(wb, sheet = sheet_name, startRow = current_row, startCol = ncol(correctness_prob_tbl) + 6, width = 12, height = 9)
   }
     
   current_row <- current_row + nrow(correctness_prob_tbl) + 2
