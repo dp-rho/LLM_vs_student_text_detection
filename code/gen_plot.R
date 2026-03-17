@@ -61,14 +61,14 @@ create_prob_plot <- function(
       width = 0.2,
       position = position_dodge(0.9)
     ) +
-    scale_y_continuous(limits = c(0, 1), name = "Probability of Correct Assessment") +
+    scale_y_continuous(limits = c(0, 1), name = "Probability of Correct Classification") +
     scale_fill_manual(
       name = legend_title,
       labels = custom_labels,
       values = my_colors,
       guide = legend_guide # <-- This now uses the new setting
     ) +
-    labs(x = "Condition") +
+    labs(x = "Classification Condition") +
     theme_minimal() +
     theme(
       panel.grid.major = element_blank(),

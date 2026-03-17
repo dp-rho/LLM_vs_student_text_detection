@@ -1,3 +1,5 @@
 # Overview
 
-This R code was used to fit the logistic regression models and create the data visualizations reported in the associated article.
+This repository includes code and outputs used to analyze the probability of TPC instructors correctly
+classifying text as either LLM generated or student generated. Additional sub analayses and outputs
+are also included.

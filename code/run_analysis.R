@@ -12,22 +12,19 @@ library(extrafont)
 # loadfonts(device = "win")
 
 # Set working directory to project dir
-setwd("D:/independent_research/AI_lit_identification/R_proj")
+proj_dir <- "D:/independent_research/AI_lit_identification/R_proj"
+setwd(proj_dir)
 
 # Read in excel datafile
 data_file <- 'AI_v_Student_lit_results.xlsx'
 raw_data <- read_excel(file.path('data', data_file))
 
 # --- Settings you can tweak ---
-proj_dir <- "D:/independent_research/AI_lit_identification/R_proj"
 data_file <- "AI_v_Student_lit_results.xlsx"
 output_file <- "AI_v_Student_primary_analysis.xlsx"
 demographic_cols_letters <- c("E", "F", "J", "R")
-header_row <- 2  # question text lives here
+header_row <- 2
 # --------------------------------
-
-# Set working directory to project dir
-setwd(proj_dir)
 
 # Source utility files
 source(file.path('code', 'get_long_format.R'))
